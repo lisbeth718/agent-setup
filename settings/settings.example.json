@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "low"
+    }
+  },
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Read-only SELECT lookups against the container named <db-container> via ssh to <host> (docker exec <db-container> psql -c 'SELECT ...'). No INSERT, UPDATE, DELETE, DDL."
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Running the seed script (<path>/seed.*) against any non-local database.",
+      "Running the RLS script (<path>/rls.*) against any non-local database."
+    ],
+    "environment": [
+      "Organization: <org>",
+      "Secrets live in: <secrets location, e.g. a password manager or a gitignored env file>",
+      "Sensitive targets: any host, container or database whose name contains 'prod'"
+    ]
+  }
+}
